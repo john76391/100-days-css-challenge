@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { useGSAP, type ContextSafeFunc } from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -9,7 +9,7 @@ export default function Component() {
   const tl = useRef<gsap.core.Timeline | null>(null);
   const [isOpen, setIsOpen] = useState(true);
 
-  const { contextSafe } = useGSAP((context) => {
+  useGSAP(() => {
     const yMove = 22;
 
     if (!tl.current) {
@@ -32,15 +32,17 @@ export default function Component() {
       );
   });
 
-  const toggleMenu = contextSafe(() => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    if (!tl.current) return;
 
-    if (!isOpen) {
+    if (isOpen) {
       tl.current.reverse();
     } else {
       tl.current.play();
     }
-  });
+  }, [isOpen]);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <div className="flex h-full items-center justify-center bg-[#3FAF82]">
