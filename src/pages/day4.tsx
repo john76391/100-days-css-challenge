@@ -10,80 +10,151 @@ export default function Component() {
     const initialShadow = "2px 2px 3px 2px rgba(0, 0, 0, 0.2)";
     const finalShadow = "10px 10px 15px 0 rgba(0, 0, 0, 0.3)";
 
-    const tl = gsap.timeline({
+    // keyframes
+    // dot-3
+    gsap.to("#dot-3", {
+      keyframes: {
+        "0%": {
+          boxShadow: initialShadow,
+          scale: 0,
+        },
+        "10%": {
+          boxShadow: finalShadow,
+          scale: 0,
+          ease: CustomEase.create("custom", "M0,0 C0.21,0.98 0.6,0.99 1,1 "),
+        },
+        "100%": {
+          boxShadow: finalShadow,
+          scale: 1,
+          ease: CustomEase.create("custom", "M0,0 C0.21,0.98 0.6,0.99 1,1 "),
+        },
+      },
+      duration: 2,
       repeat: -1,
       yoyo: true,
     });
 
-    tl.to("#dot-3", {
-      boxShadow: initialShadow,
-      scale: 0,
-      duration: 0,
-    })
-      .to("#dot-3", {
-        boxShadow: finalShadow,
-        scale: 0,
-        duration: 0.2,
-      })
-      .to("#dot-3", {
-        boxShadow: finalShadow,
-        scale: 1,
-        duration: 1.8,
-      })
-      .to(
-        "#dot-2",
-        {
+    // dot-2
+    gsap.to("#dot-2", {
+      keyframes: {
+        "0%": {
           boxShadow: initialShadow,
           scale: 0,
-          duration: 0,
         },
-        0,
-      )
-      .to(
-        "#dot-2",
-        {
+        "40%": {
           boxShadow: finalShadow,
           scale: 0,
-          duration: 0.8,
+          ease: CustomEase.create("custom", "M0,0 C0.21,0.98 0.6,0.99 1,1 "),
         },
-        ">",
-      )
-      .to(
-        "#dot-2",
-        {
+        "100%": {
           boxShadow: finalShadow,
           scale: 1,
-          duration: 1.2,
+          ease: CustomEase.create("custom", "M0,0 C0.21,0.98 0.6,0.99 1,1 "),
         },
-        ">",
-      )
-      .to(
-        "#dot-1",
-        {
+      },
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+    });
+
+    // dot-1
+    gsap.to("#dot-1", {
+      keyframes: {
+        "0%": {
           boxShadow: initialShadow,
           scale: 0,
-          duration: 0,
         },
-        0,
-      )
-      .to(
-        "#dot-1",
-        {
+        "70%": {
           boxShadow: finalShadow,
           scale: 0,
-          duration: 1.4,
+          ease: CustomEase.create("custom", "M0,0 C0.21,0.98 0.6,0.99 1,1 "),
         },
-        ">",
-      )
-      .to(
-        "#dot-1",
-        {
+        "100%": {
           boxShadow: finalShadow,
           scale: 1,
-          duration: 0.6,
+          ease: CustomEase.create("custom", "M0,0 C0.21,0.98 0.6,0.99 1,1 "),
         },
-        ">",
-      );
+      },
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+    });
+
+    // // timeline
+    // const tl = gsap.timeline({
+    //   repeat: -1,
+    //   yoyo: true,
+    // });
+
+    // tl.to("#dot-3", {
+    //   boxShadow: initialShadow,
+    //   scale: 0,
+    //   duration: 0,
+    // })
+    //   .to("#dot-3", {
+    //     boxShadow: finalShadow,
+    //     scale: 0,
+    //     duration: 0.2,
+    //   })
+    //   .to("#dot-3", {
+    //     boxShadow: finalShadow,
+    //     scale: 1,
+    //     duration: 1.8,
+    //   })
+    //   .to(
+    //     "#dot-2",
+    //     {
+    //       boxShadow: initialShadow,
+    //       scale: 0,
+    //       duration: 0,
+    //     },
+    //     0,
+    //   )
+    //   .to(
+    //     "#dot-2",
+    //     {
+    //       boxShadow: finalShadow,
+    //       scale: 0,
+    //       duration: 0.8,
+    //     },
+    //     ">",
+    //   )
+    //   .to(
+    //     "#dot-2",
+    //     {
+    //       boxShadow: finalShadow,
+    //       scale: 1,
+    //       duration: 1.2,
+    //     },
+    //     ">",
+    //   )
+    //   .to(
+    //     "#dot-1",
+    //     {
+    //       boxShadow: initialShadow,
+    //       scale: 0,
+    //       duration: 0,
+    //     },
+    //     0,
+    //   )
+    //   .to(
+    //     "#dot-1",
+    //     {
+    //       boxShadow: finalShadow,
+    //       scale: 0,
+    //       duration: 1.4,
+    //     },
+    //     ">",
+    //   )
+    //   .to(
+    //     "#dot-1",
+    //     {
+    //       boxShadow: finalShadow,
+    //       scale: 1,
+    //       duration: 0.6,
+    //     },
+    //     ">",
+    //   );
   });
 
   return (
