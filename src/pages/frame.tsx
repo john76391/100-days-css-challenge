@@ -28,7 +28,7 @@ export default function Frame() {
 
         <span className="mx-2">Switch day</span>
 
-        {+currentDay === 99 ? (
+        {+currentDay === 9 ? (
           <Button size="icon" disabled>
             <ArrowRightIcon />
           </Button>
