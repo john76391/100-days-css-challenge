@@ -1,22 +1,22 @@
 export default function Component() {
   const redPoints = [
-    { value: 458, left: "left-[7px]", top: "top-[43px]" },
-    { value: 812, left: "left-[48px]", top: "top-[9px]" },
-    { value: 746, left: "left-[88px]", top: "top-[20px]" },
-    { value: 877, left: "left-[128px]", top: "top-[8px]" },
-    { value: 517, left: "left-[169px]", top: "top-[35px]" },
-    { value: 434, left: "left-[209px]", top: "top-[45px]" },
-    { value: 458, left: "left-[249px]", top: "top-[16px]" },
+    { id: 1, value: 458, left: "left-[7px]", top: "top-[43px]" },
+    { id: 2, value: 812, left: "left-[48px]", top: "top-[9px]" },
+    { id: 3, value: 746, left: "left-[88px]", top: "top-[20px]" },
+    { id: 4, value: 877, left: "left-[128px]", top: "top-[8px]" },
+    { id: 5, value: 517, left: "left-[169px]", top: "top-[35px]" },
+    { id: 6, value: 434, left: "left-[209px]", top: "top-[45px]" },
+    { id: 7, value: 458, left: "left-[249px]", top: "top-[16px]" },
   ];
 
   const bluePoints = [
-    { value: 26, left: "left-[7px]", top: "top-[58px]" },
-    { value: 41, left: "left-[48px]", top: "top-[47px]" },
-    { value: 22, left: "left-[88px]", top: "top-[62px]" },
-    { value: 36, left: "left-[128px]", top: "top-[52px]" },
-    { value: 25, left: "left-[169px]", top: "top-[58px]" },
-    { value: 13, left: "left-[209px]", top: "top-[71px]" },
-    { value: 20, left: "left-[249px]", top: "top-[61px]" },
+    { id: 1, value: 26, left: "left-[7px]", top: "top-[58px]" },
+    { id: 2, value: 41, left: "left-[48px]", top: "top-[47px]" },
+    { id: 3, value: 22, left: "left-[88px]", top: "top-[62px]" },
+    { id: 4, value: 36, left: "left-[128px]", top: "top-[52px]" },
+    { id: 5, value: 25, left: "left-[169px]", top: "top-[58px]" },
+    { id: 6, value: 13, left: "left-[209px]", top: "top-[71px]" },
+    { id: 7, value: 20, left: "left-[249px]", top: "top-[61px]" },
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function Component() {
             <div className="text-white">
               {redPoints.map((point) => (
                 <div
-                  key={point.value}
+                  key={point.id}
                   className={`group absolute ${point.top} ${point.left} z-10 size-1.5 cursor-pointer rounded-full bg-(--red)`}
                 >
                   <div className="invisible absolute bottom-3.25 left-1/2 -translate-x-1/2 translate-y-2.5 rounded-sm bg-(--red) px-2 py-1.5 text-xs font-semibold opacity-0 transition-all duration-400 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 after:absolute after:-bottom-0.75 after:left-1/2 after:-ml-0.75 after:block after:size-1.5 after:rotate-45 after:bg-(--red) after:content-['']">
@@ -92,7 +92,7 @@ export default function Component() {
             <div className="text-white">
               {bluePoints.map((point) => (
                 <div
-                  key={point.value}
+                  key={point.id}
                   className={`group absolute ${point.top} ${point.left} z-10 size-1.5 cursor-pointer rounded-full bg-(--blue)`}
                 >
                   <div className="invisible absolute bottom-3.25 left-1/2 -translate-x-1/2 translate-y-2.5 rounded-sm bg-(--blue) px-2 py-1.5 text-xs font-semibold opacity-0 transition-all duration-400 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 after:absolute after:-bottom-0.75 after:left-1/2 after:-ml-0.75 after:block after:size-1.5 after:rotate-45 after:bg-(--blue) after:content-['']">
