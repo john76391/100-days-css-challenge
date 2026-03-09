@@ -9,8 +9,11 @@ import Day5 from "./pages/day5";
 import Day6 from "./pages/day6";
 import Day7 from "./pages/day7";
 import Day8 from "./pages/day8";
+import Day9 from "./pages/day9";
 
 import NotFound from "./pages/notFound";
+
+const days = [Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9];
 
 export default function App() {
   return (
@@ -20,14 +23,9 @@ export default function App() {
 
         <Route path="days" element={<Frame />}>
           <Route index element={<Navigate to="1" />} />
-          <Route path="1" element={<Day1 />} />
-          <Route path="2" element={<Day2 />} />
-          <Route path="3" element={<Day3 />} />
-          <Route path="4" element={<Day4 />} />
-          <Route path="5" element={<Day5 />} />
-          <Route path="6" element={<Day6 />} />
-          <Route path="7" element={<Day7 />} />
-          <Route path="8" element={<Day8 />} />
+          {days.map((Day, index) => (
+            <Route key={index} path={`${index + 1}`} element={<Day />} />
+          ))}
         </Route>
 
         <Route path="*" element={<NotFound />} />
