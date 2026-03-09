@@ -13,7 +13,7 @@ import Day9 from "./pages/day9";
 
 import NotFound from "./pages/notFound";
 
-const days = [Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9];
+export const days = [Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9];
 
 export default function App() {
   return (
