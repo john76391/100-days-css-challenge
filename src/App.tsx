@@ -8,6 +8,7 @@ import Day4 from "./pages/day4";
 import Day5 from "./pages/day5";
 import Day6 from "./pages/day6";
 import Day7 from "./pages/day7";
+import Day8 from "./pages/day8";
 
 import NotFound from "./pages/notFound";
 
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="5" element={<Day5 />} />
           <Route path="6" element={<Day6 />} />
           <Route path="7" element={<Day7 />} />
+          <Route path="8" element={<Day8 />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
