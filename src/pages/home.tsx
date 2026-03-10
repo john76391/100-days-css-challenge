@@ -29,7 +29,11 @@ function Frame({
         {children}
       </div>
 
-      <Button asChild variant="link" className="mx-auto block w-100 text-start">
+      <Button
+        asChild
+        variant="link"
+        className="mx-auto mt-2 block w-100 text-start"
+      >
         <Link to={`/days/${index + 1}`} className="font-story-script">
           Day {(index + 1).toString().padStart(3, "0")}
         </Link>
