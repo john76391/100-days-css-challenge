@@ -1,8 +1,26 @@
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import { days } from "@/App";
+import { ArrowUp } from "lucide-react";
+
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(useGSAP, ScrollToPlugin);
 
 export default function Component() {
+  const { contextSafe } = useGSAP();
+
+  const scrollToTop = contextSafe(() =>
+    gsap.to(window, {
+      scrollTo: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    }),
+  );
+
   return (
     <div className="py-5">
       <div className="mx-auto grid max-w-4xl gap-12 lg:grid-cols-2">
@@ -12,6 +30,14 @@ export default function Component() {
           </Frame>
         ))}
       </div>
+
+      <Button
+        className="fixed right-8 bottom-8 cursor-pointer"
+        size="icon"
+        onClick={scrollToTop}
+      >
+        <ArrowUp />
+      </Button>
     </div>
   );
 }
