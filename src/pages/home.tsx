@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import { days } from "@/App";
 import { ArrowUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +13,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(useGSAP, ScrollToPlugin);
 
 export default function Component() {
+  const [showBtn, setShowBtn] = useState(false);
   const { contextSafe } = useGSAP();
 
   const scrollToTop = contextSafe(() =>
@@ -20,6 +23,22 @@ export default function Component() {
       ease: "power2.inOut",
     }),
   );
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (window.scrollY > 300) {
+        setShowBtn(true);
+      } else {
+        setShowBtn(false);
+      }
+    };
+
+    window.addEventListener("scroll", checkScroll);
+
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+    };
+  }, []);
 
   return (
     <div className="py-5">
@@ -32,7 +51,10 @@ export default function Component() {
       </div>
 
       <Button
-        className="fixed right-8 bottom-8 cursor-pointer"
+        className={cn(
+          "fixed right-4 bottom-4 cursor-pointer transition-opacity duration-200",
+          !showBtn && "pointer-events-none opacity-0",
+        )}
         size="icon"
         onClick={scrollToTop}
       >
