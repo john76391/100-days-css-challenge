@@ -24,12 +24,12 @@ function Frame({
   index: number;
 }) {
   return (
-    <div className="w-fit">
+    <div className="">
       <div className="mx-auto size-100 overflow-hidden rounded-sm shadow">
         {children}
       </div>
 
-      <Button asChild variant="link">
+      <Button asChild variant="link" className="mx-auto block w-100 text-start">
         <Link to={`/days/${index + 1}`} className="font-story-script">
           Day {(index + 1).toString().padStart(3, "0")}
         </Link>
