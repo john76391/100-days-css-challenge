@@ -10,10 +10,22 @@ import Day6 from "./pages/day6";
 import Day7 from "./pages/day7";
 import Day8 from "./pages/day8";
 import Day9 from "./pages/day9";
+import Day10 from "./pages/day10";
 
 import NotFound from "./pages/notFound";
 
-export const days = [Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9];
+export const days = [
+  Day1,
+  Day2,
+  Day3,
+  Day4,
+  Day5,
+  Day6,
+  Day7,
+  Day8,
+  Day9,
+  Day10,
+];
 
 export default function App() {
   return (
