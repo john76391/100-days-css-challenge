@@ -11,6 +11,7 @@ import Day8 from './pages/day8';
 import Day9 from './pages/day9';
 import Day10 from './pages/day10';
 import Day11 from './pages/day11';
+import Day12 from './pages/day12';
 import Frame from './pages/frame';
 import Home from './pages/home';
 import NotFound from './pages/notFound';
@@ -27,6 +28,7 @@ export const days = [
     Day9,
     Day10,
     Day11,
+    Day12,
 ];
 
 export default function App() {
