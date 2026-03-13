@@ -61,6 +61,9 @@ export default function Component() {
                     animate={{
                         y: isNull ? '-145%' : 0,
                     }}
+                    initial={{
+                        y: '-145%',
+                    }}
                     transition={{
                         y: {
                             duration: isNull ? 0.5 : 0.6,
