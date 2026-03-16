@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 export default function Component() {
     const [selected, setSelected] = useState<number | null>(null);
-    const isNull = selected === null;
+    const [isOpen, setIsOpen] = useState(false);
 
     const images = [
         'https://100dayscss.com/codepen/13-1.jpg',
@@ -17,8 +17,11 @@ export default function Component() {
     ];
     const buttons = [Phone, MessageSquare, Heart];
 
-    const handleSelect = (i: number) => setSelected(i);
-    const removeSelect = () => setSelected(null);
+    const handleSelect = (i: number) => {
+        setSelected(i);
+        setIsOpen(true);
+    };
+    const removeSelect = () => setIsOpen(false);
 
     return (
         <div className="font-open-sans relative h-full bg-white text-white shadow-[1px_2px_10px_rgba(0,0,0,0.3)] [--red:#EC6565]">
@@ -52,23 +55,23 @@ export default function Component() {
             <div
                 className={cn(
                     'absolute inset-0 z-2 overflow-hidden',
-                    isNull ? 'pointer-events-none' : 'pointer-events-auto',
+                    !isOpen ? 'pointer-events-none' : 'pointer-events-auto',
                 )}
             >
                 {/* close */}
                 <motion.div
                     onClick={removeSelect}
                     animate={{
-                        y: isNull ? '-145%' : 0,
+                        y: !isOpen ? '-145%' : 0,
                     }}
                     initial={{
                         y: '-145%',
                     }}
                     transition={{
                         y: {
-                            duration: isNull ? 0.5 : 0.6,
-                            ease: isNull ? 'easeIn' : 'easeOut',
-                            delay: isNull ? 0 : 0.6,
+                            duration: !isOpen ? 0.5 : 0.6,
+                            ease: !isOpen ? 'easeIn' : 'easeOut',
+                            delay: !isOpen ? 0 : 0.6,
                         },
                     }}
                     className={cn(
@@ -90,7 +93,7 @@ export default function Component() {
                 <div
                     className={cn(
                         'transition-all duration-600',
-                        isNull
+                        !isOpen
                             ? '-translate-y-[105%] delay-400 ease-in'
                             : 'translate-y-0 ease-out',
                     )}
@@ -105,13 +108,13 @@ export default function Component() {
                 <div
                     className={cn(
                         'absolute top-32.5 left-37.5 z-1 size-25 overflow-hidden rounded-full border-2 shadow-[4px_6px_15px_rgba(0,0,0,0.2)] transition-all duration-600',
-                        isNull
+                        !isOpen
                             ? '-translate-y-62.5 delay-200 ease-in'
                             : 'translate-0 delay-300 ease-out',
                     )}
                 >
                     <img
-                        src="https://100dayscss.com/codepen/13-1.jpg"
+                        src={selected ? images[selected] : images[0]}
                         alt=""
                         className=""
                     />
@@ -120,7 +123,7 @@ export default function Component() {
                 <div
                     className={cn(
                         'h-55 bg-(--red) pt-16.75 transition-all duration-600',
-                        isNull
+                        !isOpen
                             ? 'translate-y-[105%] delay-400 ease-in'
                             : 'translate-y-0 ease-out',
                     )}
